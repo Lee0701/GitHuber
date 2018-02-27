@@ -73,8 +73,8 @@ $(document).ready(function() {
   }
   
   $('#submit').click(function() {
-    $('#submit').css('display', 'inline-block')
-    $('#submit-wait').css('display', 'none')
+    $('#submit').css('display', 'none')
+    $('#submit-wait').css('display', 'inline-block')
     const message = $('#message')[0].value
     $.ajax({
       type: 'POST',
