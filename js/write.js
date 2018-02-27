@@ -73,6 +73,8 @@ $(document).ready(function() {
   }
   
   $('#submit').click(function() {
+    $('#submit').css('display', 'inline-block')
+    $('#submit-wait').css('display', 'none')
     const message = $('#message')[0].value
     $.ajax({
       type: 'POST',
@@ -87,6 +89,7 @@ $(document).ready(function() {
       },
       success: function(result) {
         alert('success')
+        location.reload()
       },
       error: function(xhr, status, error) {
         console.log(xhr)
