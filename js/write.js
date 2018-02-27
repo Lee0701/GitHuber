@@ -64,7 +64,7 @@ $(document).ready(function() {
           data: {
             options: options,
             fields: {
-              name: result.login,
+              name: result.user.login,
               message: message,
               time: date,
             }
