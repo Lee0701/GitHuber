@@ -72,4 +72,4 @@ write:
   # the name of the field and values are possible transformation types.
   transforms:
     email: md5
-    content: md5
+    frontmatterContent: "{fields.message}"
