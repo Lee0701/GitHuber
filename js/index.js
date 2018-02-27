@@ -21,6 +21,7 @@ $(document).ready(function() {
     page++;
     $.ajax({
       url: '{{ site.baseurl }}/page/' + page + '/',
+      cache: false,
       success: function(result) {
         $('#content').append(result)
       },
