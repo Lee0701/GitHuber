@@ -21,7 +21,7 @@ write:
   # (*) REQUIRED
   #
   # Destination path (filename) for the data files. Accepts placeholders.
-  filename: "{fields.time}{@id}"
+  filename: "{fields.time}-{@id}"
   
   extension: "md"
 
