@@ -24,26 +24,60 @@ String.prototype.string = function(len){var s = '', i = 0; while (i++ < len) { s
 String.prototype.zf = function(len){return "0".string(len - this.length) + this;};
 Number.prototype.zf = function(len){return this.toString().zf(len);};
 
+$.urlParam = function(name){
+    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+    if (results==null){
+       return null;
+    }
+    else{
+       return decodeURI(results[1]) || 0;
+    }
+}
+
 $(document).ready(function() {
+  
+  var code = $.urlParam('code')
+  
   $('#submit').click(function() {
     const username = $('#username')[0].value
     const repo = 'GitHuber'
     const branch = 'master'
     const message = $('#message')[0].value
     const date = new Date().format("yyyy-MM-dd-HH-mm-ss")
+    
     $.ajax({
-      type: 'POST',
-      url: 'https://api.staticman.net/v2/entry/' + username + '/' + repo + '/' + branch + '/write',
-      data: {
-        fields: {
-          name: username,
-          message: message,
-          time: date
-        }
-      },
+      type: 'GET',
+      url: 'https://api.staticman.net/v2/auth/github/' + username + '/' + repo + '/' + branch + '/write?code=' + code,
       success: function(result) {
-        console.log(result)
+        const token = result.accessToken;
+        if(token == undefined) {
+          console.log(result)
+          return;
+        }
+        var options = {}
+        options['github-token'] = token
+        $.ajax({
+          type: 'POST',
+          url: 'https://api.staticman.net/v2/entry/' + username + '/' + repo + '/' + branch + '/write',
+          data: {
+            options: options,
+            fields: {
+              name: username,
+              message: message,
+              time: date,
+            }
+          },
+          success: function(result) {
+            console.log(result)
+          },
+          error: function(xhr, status, error) {
+            console.log(xhr)
+            console.log(status)
+            console.log(error)
+          }
+        })
       }
     })
+    
   })
 })
