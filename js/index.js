@@ -6,7 +6,7 @@ $(document).ready(function() {
   $.ajax({
     url: '{{ site.baseurl }}/write',
     success: function(result) {
-      $('#content').append(result)
+      $('#write').append(result)
     }
   })
   
