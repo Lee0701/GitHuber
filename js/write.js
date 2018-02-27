@@ -39,7 +39,7 @@ $(document).ready(function() {
   var code = $.urlParam('code')
   
   $('#submit').click(function() {
-    const username = $('#username')[0].value
+    const username = '{{ site.github_username }}'
     const repo = 'GitHuber'
     const branch = 'master'
     const message = $('#message')[0].value
@@ -62,7 +62,7 @@ $(document).ready(function() {
           data: {
             options: options,
             fields: {
-              name: username,
+              name: result.login,
               message: message,
               time: date,
             }
