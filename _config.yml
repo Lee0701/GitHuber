@@ -22,7 +22,7 @@ description: > # this means to ignore newlines until "baseurl:"
 baseurl: "/GitHuber" # the subpath of your site, e.g. /blog
 github_username: "Lee0701"
 
-paginate: 2
+paginate: 5
 paginate_path: "/page/:num/"
 
 # Build settings

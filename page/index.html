@@ -2,7 +2,7 @@
 ---
 {% for post in paginator.posts %}
 	<div class="list-post">
-		<h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
-		<div class="content">{{ post.content }}</div>
+		<h1><a href="http://github.com/{{ post.name }}">{{ post.name }}</a></h1>
+		<div class="content"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.content }}</a></div>
 	</div>
 {% endfor %}
