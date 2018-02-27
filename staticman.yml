@@ -78,5 +78,6 @@ write:
     message: "frontmatterContent"
 
   githubAuth:
+    required: true
     clientId: sPN+2xPKDsEAgbMI0qJPqm6ZkxU+YpPYPFi7sgRlV7CvWxLy02B96qztKI9yNw3zFtPt6nnselM8ckSMqjvdOkv5nizXBEgMOa00xLUQlDN9R4eSrD3A6Q4llafmum+tniFSsmNz29RzmQG/OBK39rDH32TxwWgf/l73qYWtWvg=
     clientSecret: y31rLhF0cUcwfyBWF61QkyABmXUP0haQH5D4Tbl7HNICA2Bu+77ZP6g+mfPlyd7Ba+YuuXW2feT/1wLIlEl4gGrO8rGAAMxPCZfQYz/5fBDPegT676PakhQI1P6PEUW1xsBqEgYBfHFr0OnDg+Bv1w88lp7WMadVjLT62l7FAjM=
