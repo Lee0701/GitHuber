@@ -34,6 +34,9 @@ write:
   # with a `type` property, which configures the generated field, or any value
   # to be used directly (e.g. a string, number or array)
   
+  generatedFields:
+    layout: "post"
+  
   # Whether entries need to be appproved before they are published to the main
   # branch. If set to `true`, a pull request will be created for your approval.
   # Otherwise, entries will be published to the main branch automatically.
