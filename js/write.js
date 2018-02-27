@@ -38,7 +38,7 @@ $(document).ready(function() {
         fields: {
           name: username,
           message: message,
-          date: date
+          time: date
         }
       },
       success: function(result) {
