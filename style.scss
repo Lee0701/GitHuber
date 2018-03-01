@@ -55,6 +55,33 @@ body {
 	}
 }
 
+#followers, #following {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+}
+
+.userbox {
+	display: flex;
+	width: 250px;
+	
+	margin: 10px;
+	padding: 5px;
+	border: 1px solid lightgrey;
+	border-radius: 3px;
+}
+
+.userbox-name {
+	display: inline-block;
+	margin: auto 0;
+	margin-left: 15px;
+}
+
+.userbox-avatar {
+	width: 75px;
+	height: 75px;
+}
+
 .list-post-item {
 	border-bottom: 1px solid #e1e4e8;
 	padding: 16px 0;
