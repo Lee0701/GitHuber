@@ -18,7 +18,7 @@ $(document).ready(function() {
   
   if(typeof(Storage) != 'undefined' && sessionStorage.token != undefined) {
     options['github-token'] = sessionStorage.token
-    user = sessionStorage.user
+    user = JSON.parse(sessionStorage.user)
     $('#write-form').css('display', 'block')
     $('#username').html(user.login)
   } else if(code != undefined) {
@@ -39,7 +39,7 @@ $(document).ready(function() {
             $('#username').html(user.login)
           } else {
             sessionStorage.token = token
-            sessionStorage.user = result.user
+            sessionStorage.user = JSON.stringify(result.user)
             location.href = location.href.split('?')[0]
           }
         }
