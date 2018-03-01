@@ -2,7 +2,12 @@
 	<h1 class="post-username"><a href="http://github.com/{{ include.name }}" target="null">{{ include.name }}</a></h1>
 	{% if include.replytourl %}
 	<div class="post-replyto">
-		<a href="{{ site.baseurl }}{{ include.replytourl }}">Reply to {{ include.replytoname }}</a>
+		<a class="replyto-link" href="{{ site.baseurl }}{{ include.replytourl }}">Reply to {{ include.replytoname }}:</a>
+		{% for post in site.posts %}
+			{% if post.url == include.replytourl %}
+				<div>{{ post.content }}</div>
+			{% endif %}
+		{% endfor %}
 	</div>
 	{% endif %}
 	<div class="post-content">

@@ -52,6 +52,16 @@ body {
 	}
 }
 
+.post-replyto {
+	border: 1px solid lightgray;
+	border-radius: 3px;
+	padding: 10px;
+	
+	.replyto-link {
+		font-weight: 600;
+	}
+}
+
 .reply {
 	border-top: 1px solid lightgray;
 	a {
