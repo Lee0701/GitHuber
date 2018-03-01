@@ -1,0 +1,14 @@
+<div class="post">
+	<h1 class="post-username"><a href="http://github.com/{{ include.name }}">{{ include.name }}</a></h1>
+	{% if include.replytourl %}
+	<div class="post-replyto">
+		<a href="{{ site.baseurl }}{{ include.replytourl }}">Reply to {{ include.replytoname }}</a>
+	</div>
+	{% endif %}
+	<div class="post-content">
+		<a href="{{ site.baseurl }}{{ include.url }}">
+			{{ include.content }}
+		</a>
+	</div>
+	<p class="post-date">{{ include.date | date: "%Y-%m-%d %H:%M:%S" }}</p>
+</div>

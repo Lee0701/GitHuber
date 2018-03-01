@@ -2,14 +2,6 @@
 ---
 <div class="list-post">
 {% for post in paginator.posts %}
-	<div class="list-post-item">
-		<h1 class="post-username"><a href="http://github.com/{{ post.name }}">{{ post.name }}</a></h1>
-		<div class="post-content">
-			<a href="{{ site.baseurl }}{{ post.url }}">
-				{{ post.content }}
-			</a>
-		</div>
-		<p class="post-date">{{ post.date | date: "%Y-%m-%d %H:%M:%S" }}</p>
-	</div>
+	{% include post.html name=post.name content=post.content url=post.url date=post.date replytourl=post.replytourl replytoname=post.replytoname %}
 {% endfor %}
 </div>

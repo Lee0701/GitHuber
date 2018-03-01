@@ -7,13 +7,6 @@ $(document).ready(function() {
   const p = $.urlParam('page')
   if(p != undefined) page = p
   
-  $.ajax({
-    url: '{{ site.baseurl }}/write',
-    success: function(result) {
-      $('#write').append(result)
-    }
-  })
-  
   $('#loadmore').click(function() {
     page++;
     $.ajax({

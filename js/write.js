@@ -6,7 +6,7 @@ $(document).ready(function() {
   var code = $.urlParam('code')
   
   $('#signin-button').click(function() {
-    window.location.href = 'https://github.com/login/oauth/authorize?client_id={{ site.github_client_id }}'
+    window.location.href = 'https://github.com/login/oauth/authorize?client_id={{ site.github_client_id }}&redirect_uri=' + location.href
   })
   const username = '{{ site.github_username }}'
   const repo = 'GitHuber'
@@ -40,17 +40,20 @@ $(document).ready(function() {
   $('#submit').click(function() {
     $('#submit').css('display', 'none')
     $('#submit-wait').css('display', 'inline-block')
-    const message = $('#message')[0].value
+    
+    var fields = {}
+    fields.name = user.login
+    fields.message = $('#message')[0].value
+    fields.time = date
+    if(replytourl != null) fields.replytourl = replytourl
+    if(replytoname != null) fields.replytoname = replytoname
+    
     $.ajax({
       type: 'POST',
       url: 'https://api.staticman.net/v2/entry/' + username + '/' + repo + '/' + branch + '/write',
       data: {
         options: options,
-        fields: {
-          name: user.login,
-          message: message,
-          time: date,
-        }
+        fields: fields
       },
       success: function(result) {
         alert('success')

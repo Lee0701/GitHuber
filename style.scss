@@ -46,12 +46,16 @@ body {
 }
 
 #content {
-	a {
-		color: #24292e;
-	}
 	.post-username a:hover {
 		color: #0366d6;
 		text-decoration: underline;
+	}
+}
+
+.reply {
+	border-top: 1px solid lightgray;
+	a {
+		color: #24292e;
 	}
 }
 
@@ -82,9 +86,15 @@ body {
 	height: 75px;
 }
 
-.list-post-item {
-	border-bottom: 1px solid #e1e4e8;
+.post {
 	padding: 16px 0;
+	a {
+		color: #24292e;
+	}
+}
+
+.list-post .post {
+	border-bottom: 1px solid #e1e4e8;
 }
 
 #loadmore {
