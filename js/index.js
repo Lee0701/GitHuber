@@ -1,8 +1,12 @@
 ---
 ---
-var page = 1;
+var page = 0;
 
 $(document).ready(function() {
+
+  const p = $.urlParam('page')
+  if(p != undefined) page = p
+  
   $.ajax({
     url: '{{ site.baseurl }}/write',
     success: function(result) {
@@ -10,18 +14,10 @@ $(document).ready(function() {
     }
   })
   
-  $.ajax({
-    url: '{{ site.baseurl }}/page',
-    cache: false,
-    success: function(result) {
-      $('#content').append(result)
-    }
-  })
-  
   $('#loadmore').click(function() {
     page++;
     $.ajax({
-      url: '{{ site.baseurl }}/page/' + page + '/',
+      url: '{{ site.baseurl }}' + '/page/' + ((page > 1) ? (page + '/') : ''),
       cache: false,
       success: function(result) {
         $('#content').append(result)
@@ -33,5 +29,8 @@ $(document).ready(function() {
       }
     })
   })
+  
+  $('#loadmore').click()
+  
 })
 
