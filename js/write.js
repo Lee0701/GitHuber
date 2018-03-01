@@ -19,7 +19,7 @@ $(document).ready(function() {
   if(typeof(Storage) != 'undefined' && sessionStorage.token != undefined) {
     options['github-token'] = sessionStorage.token
     user = JSON.parse(sessionStorage.user)
-    $('#write-form').css('display', 'block')
+    $('#write-form').css('display', 'flex')
     $('#username').html(user.login)
   } else if(code != undefined) {
     $.ajax({
@@ -35,7 +35,7 @@ $(document).ready(function() {
           if(typeof(Storage) == 'undefined') {
             user = result.user
             options['github-token'] = token
-            $('#write-form').css('display', 'block')
+            $('#write-form').css('display', 'flex')
             $('#username').html(user.login)
           } else {
             sessionStorage.token = token
