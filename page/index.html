@@ -2,7 +2,7 @@
 ---
 <div class="list-post">
 {% for post in paginator.posts %}
-	{% assign content = post.content | truncate: 128 %}
+	{% assign content = post.content | strip_html | truncate: 128 %}
 	{% include post.html name=post.name content=content url=post.url date=post.date replytourl=post.replytourl replytoname=post.replytoname %}
 {% endfor %}
 </div>

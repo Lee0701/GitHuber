@@ -1,5 +1,5 @@
 <div class="reply">
 	<h2><a href="http://github.com/{{ include.name }}">{{ include.name }}</a></h2>
-	<p class="reply-content"><a href="{{ site.baseurl }}{{ include.url }}">{{ include.content | truncate: 128 }}</a></p>
+	<p class="reply-content"><a href="{{ site.baseurl }}{{ include.url }}">{{ include.content | strip_html | truncate: 128 }}</a></p>
 	<p class="reply-date">{{ include.date | date: "%Y-%m-%d %H:%M:%S" }}</p>
 </div>
