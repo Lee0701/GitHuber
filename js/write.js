@@ -6,7 +6,7 @@ $(document).ready(function() {
   var code = $.urlParam('code')
   
   $('#signin-button').click(function() {
-    window.location.href = 'https://github.com/login/oauth/authorize?client_id={{ site.github_client_id }}&redirect_uri=' + location.href
+    window.location.href = 'https://github.com/login/oauth/authorize?client_id={{ site.github_client_id }}&redirect_uri={{ site.baseurl }}{{ page.url }}'
   })
   const username = '{{ site.github_username }}'
   const repo = 'GitHuber'
