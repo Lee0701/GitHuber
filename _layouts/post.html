@@ -4,9 +4,9 @@ layout: default
 
 {% include post.html name=page.name content=content url=page.url date=page.date replytourl=page.replytourl replytoname=page.replytoname %}
 
-{% for reply in site.posts %}
+{% for reply in site.posts reversed %}
 	{% if reply.replytourl == page.url %}
-		{% include reply.html name=reply.name content=reply.content url=reply.url %}
+		{% include reply.html name=reply.name content=reply.content url=reply.url date=reply.date %}
 	{% endif %}
 {% endfor %}
 
