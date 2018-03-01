@@ -45,8 +45,8 @@ $(document).ready(function() {
     fields.name = user.login
     fields.message = $('#message')[0].value
     fields.time = date
-    if(replytourl != undefined) fields.replytourl = replytourl
-    if(replytoname != undefined) fields.replytoname = replytoname
+    if(typeof(replytourl) != "undefined") fields.replytourl = replytourl
+    if(typeof(replytoname) != "undefined") fields.replytoname = replytoname
     
     $.ajax({
       type: 'POST',
