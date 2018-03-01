@@ -20,6 +20,7 @@ $(document).ready(function() {
     options['github-token'] = sessionStorage.token
     user = sessionStorage.user
     $('#write-form').css('display', 'block')
+    $('#username').html(user.login)
   } else if(code != undefined) {
     $.ajax({
       type: 'GET',
@@ -35,6 +36,7 @@ $(document).ready(function() {
             user = result.user
             options['github-token'] = token
             $('#write-form').css('display', 'block')
+            $('#username').html(user.login)
           } else {
             sessionStorage.token = token
             sessionStorage.user = result.user
