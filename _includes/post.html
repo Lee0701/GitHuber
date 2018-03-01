@@ -5,7 +5,7 @@
 		<a class="replyto-link" href="{{ site.baseurl }}{{ include.replytourl }}">Reply to {{ include.replytoname }}:</a>
 		{% for post in site.posts %}
 			{% if post.url == include.replytourl %}
-				<div>{{ post.content | truncate: 128 }}</div>
+				<div>{{ post.content }}</div>
 			{% endif %}
 		{% endfor %}
 	</div>
