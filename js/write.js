@@ -16,25 +16,36 @@ $(document).ready(function() {
   var options = {}
   var user = undefined
   
-  $('#signin-form').css('display', 'block')
-  
-  if(code != undefined) {
+  if(typeof(Storage) != 'undefined' && sessionStorage.token != undefined) {
+    options['github-token'] = sessionStorage.token
+    user = sessionStorage.user
+  } else if(code != undefined) {
     $.ajax({
       type: 'GET',
       url: 'https://api.staticman.net/v2/auth/github/' + username + '/' + repo + '/' + branch + '/write?code=' + code,
       success: function(result) {
+        $('#signin-form').css('display', 'none')
         const token = result.accessToken;
         if(token == undefined) {
           console.log(result)
+          $('#signin-form').css('display', 'block')
         } else {
-          user = result.user
-          options['github-token'] = token
-          $('#username').html(user.login)
-          $('#write-form').css('display', 'block')
-          $('#signin-form').css('display', 'none')
+          if(typeof(Storage) == 'undefined') {
+            user = result.user
+            options['github-token'] = token
+          } else {
+            sessionStorage.token = token
+            sessionStorage.user = result.user
+            location.href = location.href.split('?')[0]
+          }
         }
+      },
+      error: function(xhr, status, error) {
+        $('#signin-form').css('display', 'block')
       }
     })
+  } else {
+    $('#signin-form').css('display', 'block')
   }
   
   $('#submit').click(function() {
@@ -45,8 +56,8 @@ $(document).ready(function() {
     fields.name = user.login
     fields.message = $('#message')[0].value
     fields.time = date
-    if(typeof(replytourl) != "undefined") fields.replytourl = replytourl
-    if(typeof(replytoname) != "undefined") fields.replytoname = replytoname
+    if(typeof(replytourl) != 'undefined') fields.replytourl = replytourl
+    if(typeof(replytoname) != 'undefined') fields.replytoname = replytoname
     
     $.ajax({
       type: 'POST',
