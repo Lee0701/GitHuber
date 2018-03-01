@@ -12,6 +12,7 @@ $(document).ready(function() {
   
   $.ajax({
     url: '{{ site.baseurl }}/page',
+    cache: false,
     success: function(result) {
       $('#content').append(result)
     }
