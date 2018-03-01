@@ -9,6 +9,7 @@
 				{{ post.content }}
 			</a>
 		</div>
+		<p class="post-date">{{ post.date | date: "%Y-%m-%d %H:%M:%S" }}</p>
 	</div>
 {% endfor %}
 </div>
