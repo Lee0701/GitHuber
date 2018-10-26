@@ -1,8 +1,11 @@
 ---
 ---
 [
-{% for post in paginator.posts %}
-{% assign content = post.content | strip_html | truncate: 128 %}
+{% for post in site.posts %}
+{% if forloop.index >= 30 %}
+	{% break %}
+{% endif %}
+{% assign content = post.content | strip_html | truncate: 128 | replace: "\"", "\\\"" %}
 	{
 		"date": "{{ post.date }}",
 		"content": "<div class='list-post'>{% include post.html name=post.name content=content url=post.url date=post.date replytourl=post.replytourl replytoname=post.replytoname %}</div>"
